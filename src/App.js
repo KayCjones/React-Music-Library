@@ -18,8 +18,8 @@ function App() {
 
   return (
     <div >
-      <p>App return</p>
-      <MusicTable song= />
+      <p>App</p>
+      <MusicTable userEntries={songs} />
     </div>
   );
 }
