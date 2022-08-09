@@ -14,7 +14,19 @@ function App() {
   useEffect(() => {
     getAllSongs();
   }, [])
+  const filterSongs=(searchValue)=>{
+    if(searchValue == ""){
+      getAllSongs()
+    }
+    else{
 
+    
+    let results = songs.filter(el => el.title == searchValue || el.artist == searchValue || el.album == searchValue || el.genre == searchValue || el.release_date == searchValue)
+    console.log(results)
+    setSongs(results)
+    }
+    
+  }
   async function getAllSongs(){
     let response = await axios.get('http://127.0.0.1:8000/music/')
     setSongs(response.data);
@@ -22,10 +34,10 @@ function App() {
 
 
   return (
-    <div className='container-fluid'>
+    <div>
       <NavBar />
-      <MusicTable userEntries={songs} />
-      <AddEntryForm  />
+      <MusicTable filterSongs ={filterSongs} userEntries={songs} />
+      <AddEntryForm createSongs={getAllSongs} />
     </div>
   );
 }

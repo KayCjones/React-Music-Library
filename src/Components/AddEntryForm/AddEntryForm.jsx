@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import './AddEntryForm.css'
 import axios from "axios";
-import App from "../../App";
+
 
 const AddEntryForm = (props) => {
     
@@ -13,26 +13,33 @@ const AddEntryForm = (props) => {
 
     function handleSubmit(event) {
         event.preventDefault();
+        createSong()
     }
 
-    async function createSong(newSong){
-        newSong = {
+    async function createSong(){
+        let newSong = {
             title: title,
             artist: artist,
             album: album, 
             genre: genre,
-            releaseDate: releaseDate
+            release_date: releaseDate
         }
-        let response = await axios.post('http://127.0.0.1:8000/music/', newSong)
-        if(response.status === 201)
-            await getAllSongs();
+        let response = await axios.post('http://127.0.0.1:8000/music/', newSong);
+        
+        props.createSongs();
+        console.log("yee")
         
     }
+
+
+           
+        
+    
     
     return ( 
         <div>
-            <h2>Add Song</h2>
-        <form onSubmit={handleSubmit}>
+            <h2 className="adding-header">Add Song</h2>
+        <form className="entry-form" onSubmit={handleSubmit}>
             <label>Title</label>
             <input type='text' value={title} onChange = {(event) => setTitle(event.target.value)} />
             <label>Artist</label>
@@ -43,7 +50,7 @@ const AddEntryForm = (props) => {
             <input type='text' value={genre} onChange = {(event) => setGenre(event.target.value)} />
             <label>Release Date</label>
             <input type='date' value={releaseDate} onChange = {(event) => setReleaseDate(event.target.value)} />
-            <button type='submit' onClick={createSong}>Add Song</button>
+            <button className="button" type='submit' >Add Song</button>
         </form>
         </div>
     );
