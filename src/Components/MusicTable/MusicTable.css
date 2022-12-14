@@ -7,13 +7,20 @@
 .display-form{
     text-align: center;
     width: 100%;
-    
+    border: 2px solid;
+    border-collapse: collapse;
 }
 
 .header{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    
 }
 
 .background{
     background-image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZXogWE_CDq_W4mBdFuGrwK9_3jdDLTFg2gg&usqp=CAU";
+}
+
+.rows{
+    border: 2px solid;
+    border-collapse: collapse;
 }

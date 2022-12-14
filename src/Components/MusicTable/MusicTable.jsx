@@ -40,7 +40,7 @@ function handleSubmit(event) {
         <tbody>
           {props.userEntries.map((song) => {
             return (
-            <tr>
+            <tr className="rows">
               <td>{song.title}</td>
               <td>{song.artist}</td>
               <td>{song.album}</td>
