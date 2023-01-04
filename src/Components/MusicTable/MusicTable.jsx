@@ -35,7 +35,7 @@ function handleSubmit(event) {
           <th>Album</th>
           <th>Genre</th>
           <th>Release Date</th>
-          </tr>
+        </tr>
         </thead>
         <tbody>
           {props.userEntries.map((song) => {
@@ -46,6 +46,7 @@ function handleSubmit(event) {
               <td>{song.album}</td>
               <td>{song.genre}</td>
               <td>{song.release_date}</td>
+              <td><button>Delete</button></td>
             </tr>
             );
           })}

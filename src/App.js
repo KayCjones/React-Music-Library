@@ -11,6 +11,13 @@ function App() {
   const [songs, setSongs] = useState([ ]);
   //pass 'songs' into MusicTable component as props
   
+  // const deleteRow = (number) => {
+  //   let copy = [...rows]
+  //   copy.filter(
+  //     (item, index) => number != index
+  //   )
+  // }
+
   useEffect(() => {
     getAllSongs();
   }, [])
@@ -29,8 +36,9 @@ function App() {
   }
   async function getAllSongs(){
     let response = await axios.get('http://127.0.0.1:8000/music/')
+    // TODO: Console log debug - is this function triggering when you add a song?
     setSongs(response.data);
-  }
+  } 
 
 
   return (
